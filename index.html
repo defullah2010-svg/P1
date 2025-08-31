@@ -43,19 +43,17 @@ header img {
   100% { background-position: 0% 50% }
 }
 
-/* nav يغطي المساحة بين الهيدر والفوتر */
+/* nav */
 nav {
   display: flex;
   flex-direction: column;
   padding: 10px;
-  gap: 10px;
-  flex-grow: 1;
+  gap: 8px;
 }
 
-/* كل تبويب يغطي كامل العرض ويملأ ارتفاع nav بالتساوي */
+/* كل تبويب */
 nav .tab {
   width: 100%;
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,7 +105,7 @@ footer {
 @media (max-width: 768px) {
   header { flex-direction: column; text-align: center; padding:8px; }
   header img { height: 45px; }
-  nav { padding: 6px; gap: 6px; flex-grow: 1; }
+  nav { padding: 6px; gap: 6px; }
   nav .tab { font-size: 16px; padding: 12px; }
   .report-types { flex-direction: row; gap: 6px; font-size: 12px; justify-content: center; }
 }
@@ -152,9 +150,13 @@ footer {
   تصميم : أ.ضيف الله الطويرقي  0543559220
 </footer>
 
-<!-- كود رسالة تثبيت التطبيق لمرة واحدة -->
+<!-- كود رسالة تثبيت التطبيق -->
 <script>
-if (!localStorage.getItem('installPromptShown')) {
+function isInStandaloneMode() {
+  return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+}
+
+if (!isInStandaloneMode()) {
 
   let deferredPrompt;
 
@@ -213,7 +215,6 @@ if (!localStorage.getItem('installPromptShown')) {
 
   document.getElementById('closeInstallPrompt').onclick = function() {
     messageDiv.remove();
-    localStorage.setItem('installPromptShown', 'true');
   };
 
   window.addEventListener('beforeinstallprompt', (e) => {
@@ -223,10 +224,8 @@ if (!localStorage.getItem('installPromptShown')) {
 
     androidBtn.onclick = async () => {
       deferredPrompt.prompt();
-      const choiceResult = await deferredPrompt.userChoice;
       deferredPrompt = null;
       messageDiv.remove();
-      localStorage.setItem('installPromptShown', 'true');
     };
   });
 }
