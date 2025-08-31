@@ -23,9 +23,9 @@ body {
 
 header {
   display: flex;
-  justify-content: center; /* شعار في الوسط */
+  justify-content: center;
   align-items: center;
-  padding: 15px 30px;
+  padding: 10px 20px;
   color: white;
   background: linear-gradient(270deg, #0a3d62, #3c6382, #38ada9);
   background-size: 600% 600%;
@@ -34,7 +34,7 @@ header {
 }
 
 header img {
-  height: 60px;
+  height: 50px;
 }
 
 @keyframes gradientBG {
@@ -46,8 +46,8 @@ header img {
 nav {
   display: flex;
   flex-direction: column;
-  padding: 15px;
-  gap: 12px;
+  padding: 10px;
+  gap: 8px;
 }
 
 nav .tab {
@@ -56,14 +56,14 @@ nav .tab {
   box-shadow: 0 3px 8px rgba(0,0,0,0.25);
   color: white;
   text-align: center;
-  padding: 18px;
-  font-size: 20px;
+  padding: 14px;
+  font-size: 18px;
   transition: transform 0.3s;
 }
 
-nav .tab:hover { transform: translateY(-3px); }
+nav .tab:hover { transform: translateY(-2px); }
 
-/* ألوان تبويبات أكاديمية بحركة متموج مستقلة */
+/* ألوان تبويبات متحركة */
 .tab1 { background: linear-gradient(270deg, #2c3e50, #34495e); background-size: 600% 600%; animation: gradient1 12s ease infinite; }
 .tab2 { background: linear-gradient(270deg, #1f618d, #2980b9); background-size: 600% 600%; animation: gradient2 14s ease infinite; }
 .tab3 { background: linear-gradient(270deg, #117864, #16a085); background-size: 600% 600%; animation: gradient3 16s ease infinite; }
@@ -78,31 +78,35 @@ nav .tab:hover { transform: translateY(-3px); }
 .report-types {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
-  gap: 30px;
-  font-size: 16px;
+  margin-top: 6px;
+  gap: 12px;
+  font-size: 14px;
   color: #f0f0f0;
 }
 
 footer {
   text-align: center;
-  padding: 15px;
+  padding: 8px;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   background: linear-gradient(270deg, #0a3d62, #3c6382, #38ada9);
   background-size: 600% 600%;
   animation: gradientBG 12s ease infinite;
   margin-top: auto;
 }
 
+/* للجوال */
 @media (max-width: 768px) {
-  header { flex-direction: column; text-align: center; }
-  nav .tab { font-size: 18px; padding: 14px; }
-  .report-types { flex-direction: column; gap: 8px; }
+  header { flex-direction: column; text-align: center; padding:8px; }
+  header img { height: 45px; }
+  nav { padding: 6px; gap:6px; }
+  nav .tab { font-size: 16px; padding: 10px; }
+  .report-types { flex-direction: column; gap: 4px; font-size: 12px; }
+  footer { padding: 6px; font-size: 12px; }
 }
 </style>
 
-<!-- أيقونات للشاشات والجوال -->
+<!-- أيقونات -->
 <link rel="icon" href="https://a.top4top.io/p_3530c738a1.png" type="image/png">
 <link rel="apple-touch-icon" href="https://a.top4top.io/p_3530c738a1.png">
 <link rel="manifest" href="manifest.json">
@@ -116,7 +120,7 @@ footer {
 
 <nav>
   <div class="tab tab1">
-    📊 نظام التقارير
+    <a href="reports.html" target="_blank" style="color:white; text-decoration:none;">📊 نظام التقارير</a>
     <div class="report-types">
       <span>اليومي</span>
       <span>الأسبوعي</span>
